@@ -1,0 +1,35 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Effects - Base
+//
+// 	Include our base effect
+//
+// ---------------------------------------------------------------------------- *
+
+$mk-effect-name-base: effect !default;
+
+@if ( map-has-key( __mk_get_global_effects_map(), $mk-effect-name-base ) ) {
+
+	$mk-effect-selector: mk-get-selector( $mk-effect-name-base, map-get( map-get( __mk_get_global_effects_map(), $mk-effect-name-base ), 'base' ), $mk-effect-prefix ) !default;
+	$map: map-get( __mk_get_global_effects_map(), $mk-effect-name-base );
+
+	#{ $mk-effect-selector } {
+
+		&__item {
+
+			transition: all ( mk-misc-config( transition, base ) ) ease;
+
+		}		
+
+	}
+
+}

@@ -1,0 +1,99 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Global Functions - effects
+//
+// 	Setup and retrieve the project object configuration
+//
+// ---------------------------------------------------------------------------- *
+
+
+
+
+
+// ------------------------------------------------
+//	Add a effect to the global effect array
+// ------------------------------------------------
+
+@mixin mk-add-effect( $name, $key, $value ) {
+
+	$mk-global-effects: mk-add-data( __mk_get_global_effects_map(), $name, $key, $value ) !global;
+
+}
+
+
+
+
+
+
+// ------------------------------------------------
+//	Retrieve a effect from an array
+// ------------------------------------------------
+
+@function mk-effect( $name, $key: 'base' ) {
+
+	@if ( __mk_get_global_effect_map() ) {
+
+		$map: __mk_get_global_grid_config_map();
+		$map-name-exists: map-has-key( $map, $name );
+		$map-key-exists: null;
+
+		// Check to see if the requested name exists
+		@if ( $map-name-exists ) {
+
+			$map-key-exists: map-has-key( map-get( $map, $name ), $key );
+
+		}
+
+		@else {
+
+			@warn "Unknown '#{ $key }' in $mk-global-effects( #{ $name } ).";
+			@return null;
+
+		}
+
+		// Check to see if the requested key exists
+		@if ( $map-key-exists ) {
+
+			@return map-get( map-get( $map, $name ), $key );
+
+		}
+
+		@else {
+
+			@warn "Unknown '#{ $name }' in $mk-global-objects.";
+			@return null;
+
+		}
+
+	} 
+
+	@else {
+
+		@warn "Global effects have not yet been set.";
+		@return null;
+
+	}
+
+}
+
+
+
+
+// ------------------------------------------------
+//	Get the global grid config map
+// ------------------------------------------------
+
+@function __mk_get_global_effects_map() {
+
+	@return $mk-global-effects;
+
+}

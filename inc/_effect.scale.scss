@@ -1,0 +1,52 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Effects - Scale
+//
+// 	Scale an element on hover
+//
+// ---------------------------------------------------------------------------- *
+
+
+$mk-effect-name-scale:  scale !default;
+
+
+@if ( map-has-key( __mk_get_global_effects_map(), $mk-effect-name-scale ) ) {
+
+	$mk-effect-scale-selector: mk-get-selector( $mk-effect-name-scale, map-get( map-get( __mk_get_global_effects_map(), $mk-effect-name-scale ), 'base' ), $mk-effect-prefix ) !default;
+	$map: map-get( __mk_get_global_effects_map(), $mk-effect-name-scale );
+
+	#{ $mk-effect-scale-selector } {
+
+		.e-effect__item {
+
+			transform: scale( 1 );
+
+		}
+
+		// Border Width Modifier
+		@if ( map-has-key( $map, 'tiny' ) ) {
+
+			&--tiny:hover {
+
+				.e-effect__item {
+
+					transform: scale( 1.05 );
+
+				}
+
+			}
+
+		}
+
+	}
+
+}

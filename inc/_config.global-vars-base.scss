@@ -1,0 +1,24 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Global Vars - Base
+//
+// 	Declare the primary global variables for use throughout the project
+//
+// ---------------------------------------------------------------------------- *
+
+
+$mk-effect-name:                            effect !default;
+
+
+// Components
+$mk-effect-prefix:                          unquote( 'e-' ) !default;
+$mk-global-effects:                         () !global;

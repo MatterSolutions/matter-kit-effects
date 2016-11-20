@@ -1,0 +1,62 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Effects - Nudge
+//
+// 	Nudge an element on hover
+//
+// ---------------------------------------------------------------------------- *
+
+
+$mk-effect-name-nudge:  nudge !default;
+
+
+@if ( map-has-key( __mk_get_global_effects_map(), $mk-effect-name-nudge ) ) {
+
+	$mk-effect-nudge-selector: mk-get-selector( $mk-effect-name-nudge, map-get( map-get( __mk_get_global_effects_map(), $mk-effect-name-nudge ), 'base' ), $mk-effect-prefix ) !default;
+	$map: map-get( __mk_get_global_effects_map(), $mk-effect-name-nudge );
+
+	#{ $mk-effect-nudge-selector } {
+
+		// Up Modifier
+		@if ( map-has-key( $map, 'up' ) ) {
+
+			&--up:hover {
+
+				.e-effect__item {
+
+					transform: translateY( -( .5em ) );
+
+				}
+
+			}
+
+		}
+
+
+		// Right Modifier
+		@if ( map-has-key( $map, 'right' ) ) {
+
+			&--right:hover {
+
+				.e-effect__item {
+
+					transform: translateX( .5em );
+
+				}
+
+			}
+
+		}
+
+	}
+
+}

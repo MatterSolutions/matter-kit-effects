@@ -1,8 +1,8 @@
 {
 	"name": "matter-kit-effects",
-	"version": "0.9.0",
+	"version": "0.9.1",
 	"dependencies": {
-		"matter-kit-css": "~0.9.1"
+		"matter-kit-css": "*"
 	},
 	"keywords": [
 		"css",
